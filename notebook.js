@@ -43,7 +43,9 @@ var result, result2;
 // result = osc(50, 0, 1).brightness(0.4)
 // result = osc(50, 0, 1).brightness(-0.4)
 
-// Luma.  Filters by luminance.  Non-bright colors become transparent, which may appear black to due Hydra's default background.
+// Luma.  Filters by luminance.
+// Non-bright colors become transparent, which may appear black to due Hydra's default background.
+// Bright colors remain unchanged.
 // Similar to luma are the functions r(), g(), and b().  R() replaces g, b, and a with the r value.
 // result = osc(60, 0, 2).luma(0.5)
 
@@ -90,13 +92,15 @@ var result, result2;
 // result2 = osc(26, 0.1, 1)
 // result.mult(result2, 0.5)
 
-// Diff.
+// Diff. Calculates absolute difference between color values, for each color channel.
 // result = osc(60, 0, 0)
 // result2 = osc(26, 0.1, 1)
 // result.diff(result2)
 
-// Mask.
-// Colors come only from base source.
+// Mask.  Uses the brightness of the mask source to control the transparency of the base source.
+// Bright areas of the mask image become opaque, revealing the visual layer underneath.
+// Dark areas of the mask image become transparent, hiding the layer below.
+// Colors come only from base source, specifically g and a little bit of r but none from b (I think).
 // result = osc(60, 0, 1)
 // result2 = osc(26, 0.1, 0)
 // result.mask(result2)
