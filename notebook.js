@@ -105,37 +105,39 @@ var result, result2;
 // result2 = osc(26, 0.1, 0)
 // result.mask(result2)
 
-// Modulate.
-// Modulates according to the modulator's red and green values.  Red values affect horizontal, green values affect vertical.
+// Modulate.  Red values affect horizontal.  Green values affect vertical.
 // The actual colors of the modulator do not appear.
 // The sign of the modulation amount affects modulation direction.  Postive for left and up, negative for right and down.
-// result = shape(4)
-// result2 = noise().color(1, 0, 0)
-// result.modulate(result2)
 
-// ModulateRepeat.  Same as calling repeat, then modulate.
+// ModulateRepeatX.  Only red channel affects modulation.
+// Reps is number of horizontal repeats before modulation is applied.
+// Offset is *vertical* warp/modulation amount, upward.
 
-// ModulateKaleid.  Applies kaleid to base source, but also applies some more advanced kaleid inside modulating source.
+// ModulateRepeatY.  Only red channel affects modulation.
+// Reps is number of vertical repeats before modulation is applied.
+// Offset is *horizontal* warp/modulation amount, to the left.
 
-// ModulateScrollX.  Offsets base source according to modulating source.  Optionally scroll base source as well.
-// result = osc(60, 0.)
-// 	.thresh(0.5, 0)
-// 	.modulateScrollX(shape(3, 0.4, 0), 0.01, 0.01)
+// ModulateKaleid.  Only red channel affects modulation.
+// Applies kaleid() to base image, then applies some additional kaleid magic where the modulating image's red channel is non zero.
+// The more red, the more kaleid.
 
-// ModulateScale.  Scales base source according to modulating source.  Optionally scale base source as well.
-// result = osc(60, 0.)
-// 	.thresh(0.5, 0)
-// 	.modulateScale(shape(3, 0.4, 0), 0.1, 1)
+// ModulateScrollX.  Only red channel affects modulation.
+// ScrollX argument is the offset to the left where the modulating image is red.  The less red, the less offset/modulation.
 
-// ModulatePixelate.  Seems to pixelate base source by "offset", then apply an additional pixelation "multiple" onto modulating source.
-// result = osc(100, 0.01)
-// 	.thresh(0.5, 0)
-// 	.modulatePixelate(shape(3, 0.4, 0), 20, 6)
+// ModulateScale.  Red channel controls horizontal scaling.  Green channel controls vertical scaling.
+// Multiple argument is how sensitive the modulation is to the red and green channels.
+// Offset argument scales base image (and modulated parts, since they derive from base image).
 
-// ModulateRotate.  Modulates according to modulator's red values.
+// ModulatePixelate.  Red channel controls pixelation along the x-axis.  Green channel controls pixelation along the y-axis.
+// I'm not sure how.
+
+// ModulateRotate.  Only red channel affects modulation.
 // Positive modulation amount is clockwise; negative is counterclockwise.
-// result = shape(4)
-// result2 = osc(5, 0.1)
-// result.modulateRotate(result2, 0.5)
+// Multiple argument is ...
+// Offset argument is ...
 
-// ModulateHue.  Warps horizontally based on difference between r and g, and vertically based on difference betwee
+// ModulateHue.  Warps horizontally based on difference between r and g, and vertically based on difference between g and b.
+// Is this broken?
+
+
+
