@@ -5,10 +5,12 @@ let shapeRadius = 0.2
 let scrollXMax = 0.5 - 0.5 * shapeRadius
 let scrollYMax = 0.5 - 0.5 * (shapeRadius * windowRescale())
 
-function rand(intervalRange = [1, 3], range = [0, 1]) {
+// intervalRange is the min and max for the random time duration.
+// range is the min and max for the random result.
+function randValRandTime(intervalRange = [1, 3], range = [0, 1]) {
 	let result = 0
-    let interval;
-    let nextTime = time
+  let interval;
+  let nextTime = time
 
 	return () => {
 		if (time >= nextTime) {
@@ -20,9 +22,9 @@ function rand(intervalRange = [1, 3], range = [0, 1]) {
 	}
 }
 
-let scrollXRand = rand([0.7, 2.0], [-scrollXMax, scrollXMax])
-let scrollYRand = rand([0.5, 1.5], [-scrollYMax, scrollYMax])
-let threshRand = rand([1, 1], [0.3, 0.8])
+let scrollXRand = randValRandTime([0.7, 2.0], [-scrollXMax, scrollXMax])
+let scrollYRand = randValRandTime([0.5, 1.5], [-scrollYMax, scrollYMax])
+let threshRand = randValRandTime([1, 1], [0.3, 0.8])
 
 
 

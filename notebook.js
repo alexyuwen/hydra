@@ -9,7 +9,7 @@ var result, result2;
 // Scale.
 // result = shape().scale(2.5)
 
-// Pixelate.
+// Pixelate.  Does not average colors in bin, but instead takes the color at the center of bin.
 // result = osc(60, 0.1).pixelate(4, 1)
 
 // RepeatX.
@@ -32,9 +32,8 @@ var result, result2;
 // result = gradient().posterize()
 
 // Invert.  Inverts color.
-// Invert 0.5 results in a gray screen.
-// result = shape().invert()
-// result = gradient().invert()
+// Invert amount of 1 replaces r with 1 - r, and same for g and b.
+// Invert amount of 0.5 results in a gray screen: r = g = b = 0.5.
 
 // Contrast.  Exaggerates light and dark.  Contrast=1 does nothing.
 // result = osc(30, 0, 0.5).contrast(2)
@@ -98,8 +97,9 @@ var result, result2;
 // result.diff(result2)
 
 // Mask.  Uses the brightness of the mask source to control the transparency of the base source.
-// Bright areas of the mask image become opaque, revealing the visual layer underneath.
-// Dark areas of the mask image become transparent, hiding the layer below.
+// Bright areas of the mask image make the source image opaque, so you see the source image.
+// Dark areas of the mask image make the source image transparent, so you see through the source image (always to the default black screen?).
+// Areas that are not too bright or too dark make the source image semi-transparent.
 // Colors come only from base source, specifically g and a little bit of r but none from b (I think).
 // result = osc(60, 0, 1)
 // result2 = osc(26, 0.1, 0)
@@ -125,19 +125,20 @@ var result, result2;
 // ScrollX argument is the offset to the left where the modulating image is red.  The less red, the less offset/modulation.
 
 // ModulateScale.  Red channel controls horizontal scaling.  Green channel controls vertical scaling.
-// Multiple argument is how sensitive the modulation is to the red and green channels.
+// Multiple argument is how sensitive modulation is to the red and green channels.
 // Offset argument scales base image (and modulated parts, since they derive from base image).
 
 // ModulatePixelate.  Red channel controls pixelation along the x-axis.  Green channel controls pixelation along the y-axis.
 // I'm not sure how.
+// Multiple argument *adds* additional pixelation to the pixelation specified by "offset".
+// Offset argument pixelates base image (and modulated parts, since they derive from base image).
 
 // ModulateRotate.  Only red channel affects modulation.
-// Positive modulation amount is clockwise; negative is counterclockwise.
-// Multiple argument is ...
-// Offset argument is ...
+// Multiple argument is how sensitive modulation is to the red channel.  Positive is clockwise, negative is counterclockwise.
+// Offset argument rotates base image (and modulated parts, since they derive from base image).
 
 // ModulateHue.  Warps horizontally based on difference between r and g, and vertically based on difference between g and b.
-// Is this broken?
+// This is broken.
 
 
 
