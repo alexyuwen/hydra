@@ -114,4 +114,10 @@
 // Or perhaps github for both?
 
 
+// The raw link format is required:
+// https://raw.githubusercontent.com/alexyuwen/hydra/27258965302351d45ca692d22eb603e1c8641b95/elmo.mp4
+s0.initVideo("https://raw.githubusercontent.com/alexyuwen/hydra/27258965302351d45ca692d22eb603e1c8641b95/elmo.mp4")
+src(s0).out()
+
+
 
