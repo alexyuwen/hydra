@@ -83,7 +83,7 @@
 // The more red, the more kaleid.
 
 // ModulateScrollX.  Only red channel affects modulation.
-// ScrollX argument is the offset to the left where the modulating image is red.  The less red, the less offset/modulation.
+// ScrollX argument is the scroll/modulation amount to the left.  The less red, the less scroll/modulation.
 
 // ModulateScale.  Red channel controls horizontal scaling.  Green channel controls vertical scaling.
 // Multiple argument is how sensitive modulation is to the red and green channels.

@@ -85,7 +85,8 @@ for (let x of makeList(0.02, 4)) {
   }
 }
 
-
+// The triple-dot "spread" operator makes each argument the same function result. For a different function result for each argument, do:
+// .color(...Array(3).fill().map(x => randColor()))
 let result = squares.reduce((a, b) => a.layer(b.r()
 		.color(...Array(3)
 			.fill(randColor()))), solid())
