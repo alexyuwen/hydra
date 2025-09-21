@@ -70,13 +70,13 @@
 // The actual colors of the modulator do not appear.
 // The sign of the modulation amount affects modulation direction.  Postive for left and up, negative for right and down.
 
-// ModulateRepeatX.  Only red channel affects modulation.
+// ModulateRepeatX.  Repeats, then uses just the red channel of modulating image to warp upwards.
 // Reps is number of horizontal repeats before modulation is applied.
-// Offset is *vertical* warp/modulation amount, upward.
+// Offset is *vertical* warp/modulation amount.
 
-// ModulateRepeatY.  Only red channel affects modulation.
+// ModulateRepeatY.  Repeats, then uses just the red channel of modulating image to warp to the left.
 // Reps is number of vertical repeats before modulation is applied.
-// Offset is *horizontal* warp/modulation amount, to the left.
+// Offset is *horizontal* warp/modulation amount.
 
 // ModulateKaleid.  Only red channel affects modulation.
 // Applies kaleid() to base image, then applies some additional kaleid magic where the modulating image's red channel is non zero.
@@ -115,9 +115,11 @@
 
 
 // The raw link format is required:
-// https://raw.githubusercontent.com/alexyuwen/hydra/27258965302351d45ca692d22eb603e1c8641b95/elmo.mp4
-s0.initVideo("https://raw.githubusercontent.com/alexyuwen/hydra/27258965302351d45ca692d22eb603e1c8641b95/elmo.mp4")
+// https://raw.githubusercontent.com/alexyuwen/hydra/<commit-id>/path-to-file.file-type
+s0.initVideo("https://raw.githubusercontent.com/alexyuwen/hydra/cdf689604bf6e3065e93f39c0a2a30cf52a84a98/media/elmo.mp4")
 src(s0).out()
 
-
+// Image.
+s0.initImage("https://raw.githubusercontent.com/alexyuwen/hydra/cdf689604bf6e3065e93f39c0a2a30cf52a84a98/media/dyingStar.jpg")
+src(s0).out()
 
