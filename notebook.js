@@ -34,7 +34,7 @@
 // Similar to luma are the functions r(), g(), and b().  R() replaces g, b, and a with the r value.
 // Threshold argument accepted, but 1 is the default, not 0.5.
 
-// Thresh.  Turns all color into black and white, depending on threshold.
+// Thresh.  Turns all color into black and white, depending on brightness threshold.
 
 // Color.  RGBA.
 
@@ -50,7 +50,7 @@
 
 // Add.
 
-// Sub.  Seems broken.
+// Sub.
 
 // Layer.  The source being layered needs luma in order to add transparency.
 
@@ -82,8 +82,8 @@
 // Applies kaleid() to base image, then applies some additional kaleid magic where the modulating image's red channel is non zero.
 // The more red, the more kaleid.
 
-// ModulateScrollX.  Only red channel affects modulation.
-// ScrollX argument is the scroll/modulation amount to the left.  The less red, the less scroll/modulation.
+// ModulateScrollX.  Only red channel affects modulation.  The less red, the less scroll/modulation.
+// ScrollX argument is the scroll/modulation amount to the left.
 
 // ModulateScale.  Red channel controls horizontal scaling.  Green channel controls vertical scaling.
 // Multiple argument is how sensitive modulation is to the red and green channels.
