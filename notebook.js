@@ -52,7 +52,8 @@
 
 // Sub.
 
-// Layer.  The source being layered needs luma in order to add transparency.
+// Layer.  Adds second layer on top.  The amount depends on the brightness of the second layer, proportionally.
+// The source being layered needs luma in order to add transparency.
 
 // Blend.  Essentially, cross-fading.
 
