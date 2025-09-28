@@ -49,17 +49,20 @@
 // result = osc(50, 0.05, 1).colorama()
 
 // Add.
+// Does more than simply adding RGB values.  For example: noise().add(solid(1,1,1), 2) will produce white screen only with amount of 2.
+// Combine with mask to add only part of an image.
 
 // Sub.
 
 // Layer.  Adds second layer on top.  The amount depends on the brightness of the second layer, proportionally.
-// The source being layered needs luma in order to add transparency.
+// The source being layered needs luma or mask in order to add transparency.
 
 // Blend.  Essentially, cross-fading.
 
 // Mult.
 
 // Diff. Calculates absolute difference between color values, for each color channel.
+// Inverts base image color where second image is white.
 
 // Mask.  Uses the brightness of the mask source to control the transparency of the base source.
 // Bright areas of the mask image make the source image opaque, so you see the source image.
@@ -67,9 +70,9 @@
 // Areas that are not too bright or too dark make the source image semi-transparent.
 // Colors come only from base source, specifically g and a little bit of r but none from b (I think).
 
-// Modulate.  Red values affect horizontal.  Green values affect vertical.
-// The actual colors of the modulator do not appear.
-// The sign of the modulation amount affects modulation direction.  Postive for left and up, negative for right and down.
+// Modulate.  Red values affect horizontal.  Green values affect vertical.  The actual colors of the modulator do not appear.
+// Positive modulation amount means that modulated sections will take what's to the right and down.
+// Negative modulation amount means that modulated sections will take what's to the left and up.
 
 // ModulateRepeatX.  Repeats, then uses just the red channel of modulating image to warp upwards.
 // Reps is number of horizontal repeats before modulation is applied.
@@ -84,15 +87,15 @@
 // The more red, the more kaleid.
 
 // ModulateScrollX.  Only red channel affects modulation.  The less red, the less scroll/modulation.
-// ScrollX argument is the scroll/modulation amount to the left.
+// ScrollX argument is the scroll/modulation amount to the left.  The scroll is a fixed offset.
+// Speed argument is the scroll speed of everything, including the modulated portions.
 
 // ModulateScale.  Red channel controls horizontal scaling.  Green channel controls vertical scaling.
 // Multiple argument is how sensitive modulation is to the red and green channels.
 // Offset argument scales base image (and modulated parts, since they derive from base image).
 
 // ModulatePixelate.  Red channel controls pixelation along the x-axis.  Green channel controls pixelation along the y-axis.
-// I'm not sure how.
-// Multiple argument *adds* additional pixelation to the pixelation specified by "offset".
+// Multiple argument is modulation amount.  It increases pixelation, on top of the base pixelation specified by "offset".  Not sure how.
 // Offset argument pixelates base image (and modulated parts, since they derive from base image).
 
 // ModulateRotate.  Only red channel affects modulation.
@@ -123,4 +126,13 @@ src(s0).out()
 // Image.
 s0.initImage("https://raw.githubusercontent.com/alexyuwen/hydra/cdf689604bf6e3065e93f39c0a2a30cf52a84a98/media/dyingStar.jpg")
 src(s0).out()
+
+
+
+
+
+
+
+
+
 
