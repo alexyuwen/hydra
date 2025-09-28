@@ -15,7 +15,8 @@
 // ScrollY.
 
 // Posterize.  Put colors into bins.
-// result = gradient().posterize()
+// Gamma argument adjusts the distribution of brightness levels among the bins.
+// Gamma > 1 increase brightness of midtones; Gamma < 1 darkens them.
 
 // Invert.  Inverts color.
 // Invert amount of 1 replaces r with 1 - r, and same for g and b.
@@ -104,28 +105,6 @@
 
 // ModulateHue.  Warps horizontally based on difference between r and g, and vertically based on difference between g and b.
 // Broken.
-
-
-
-////////////////////
-////////////////////
-////////////////////
-////////////////////
-////////////////////
-
-// Imgb for images.
-// Wikimedia for video.
-// Or perhaps github for both?
-
-
-// The raw link format is required:
-// https://raw.githubusercontent.com/alexyuwen/hydra/<commit-id>/path-to-file.file-type
-s0.initVideo("https://raw.githubusercontent.com/alexyuwen/hydra/cdf689604bf6e3065e93f39c0a2a30cf52a84a98/media/elmo.mp4")
-src(s0).out()
-
-// Image.
-s0.initImage("https://raw.githubusercontent.com/alexyuwen/hydra/cdf689604bf6e3065e93f39c0a2a30cf52a84a98/media/dyingStar.jpg")
-src(s0).out()
 
 
 
