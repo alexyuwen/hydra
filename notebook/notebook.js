@@ -88,7 +88,15 @@
 // The more red, the more kaleid.
 
 // ModulateScrollX.  Only red channel affects modulation.  The less red, the less scroll/modulation.
-// ScrollX argument is the scroll/modulation amount to the left.  The scroll is a fixed offset.
+// ScrollX argument is the fixed scroll/modulation amount.
+// Just like with Modulate, positive modulation amount means modulated sections will take what's to the right.
+// Negative modulation amount means modulated sections will take what's to the left.
+// Speed argument is the scroll speed of everything, including the modulated portions.
+
+// ModulateScrollY.  Only red channel affects modulation.  The less red, the less scroll/modulation.
+// ScrollY argument is the fixed scroll/modulation amount.
+// Just like with Modulate, positive modulation amount means modulated sections will take what's below.
+// Negative modulation amount means modulated sections will take what's above.
 // Speed argument is the scroll speed of everything, including the modulated portions.
 
 // ModulateScale.  Red channel controls horizontal scaling.  Green channel controls vertical scaling.
