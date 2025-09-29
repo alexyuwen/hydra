@@ -1,0 +1,1 @@
+// Two colors.  Each diagonal is its own color.
