@@ -4,5 +4,16 @@ osc(20, 0).modulatePixelate(x, 1, 4).out()
 
 
 
+// How does gradient().invert() work?
+
+
+
+
+
+
+
+
+
+
 
 

@@ -63,6 +63,7 @@
 // Mult.
 
 // Diff. Calculates absolute difference between color values, for each color channel.
+// Works for all numbers: negative, positive, greater than 1, lower than -1
 // Inverts base image color where second image is white.
 
 // Mask.  Uses the brightness of the mask source to control the transparency of the base source.
