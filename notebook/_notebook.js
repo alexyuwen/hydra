@@ -1,3 +1,12 @@
+/*
+GENERAL NOTES
+
+Once you write to a buffer (o0, o1, o2, o3), values are trimmed. Anything lower than 0 becomes 0, and anything greater than 1 becomes 1.
+
+
+
+*/
+
 // Rotate.
 
 // Scale.
@@ -14,9 +23,13 @@
 
 // ScrollY.
 
-// Posterize.  Put colors into bins.
+// Posterize.  Thresh but for each channel.
+// Bins=3 makes each RGB channel 0, 0.5, or 1, resulting in 3x3x3 = 27 total color combinations.
 // Gamma argument adjusts the distribution of brightness levels among the bins.
 // Gamma > 1 increase brightness of midtones; Gamma < 1 darkens them.
+
+// Shift.  Shifts RGB channels.
+// Adds offset to RGB channels individually.
 
 // Invert.  Inverts color.
 // Invert amount of 1 replaces r with 1 - r, and same for g and b.
@@ -105,12 +118,14 @@
 // Offset argument scales base image (and modulated parts, since they derive from base image).
 
 // ModulatePixelate.  Red channel controls pixelation along the x-axis.  Green channel controls pixelation along the y-axis.
-// Multiple argument is modulation amount.  It increases pixelation, on top of the base pixelation specified by "offset".  Not sure how.
+// Multiple argument is modulation amount.  It increases pixelation, on top of the base pixelation specified by "offset".
 // Offset argument pixelates base image (and modulated parts, since they derive from base image).
+// TODO: How do shades affect modulation?  1,1,1 vs 0.5,0.5,0.5
 
 // ModulateRotate.  Only red channel affects modulation.
 // Multiple argument is how sensitive modulation is to the red channel.  Positive is clockwise, negative is counterclockwise.
 // Offset argument rotates base image (and modulated parts, since they derive from base image).
+// Unlike the Rotate function, which accepts speed argument, ModulateRotate only calculates static rotation amount.
 
 // ModulateHue.  Warps horizontally based on difference between r and g, and vertically based on difference between g and b.
 // Broken.
