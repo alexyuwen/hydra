@@ -40,6 +40,14 @@ Once you write to a buffer (o0, o1, o2, o3), values are trimmed. Anything lower 
 // RGB′ = amount * (RGB − 0.5) + 0.5
 
 // Brightness.
+// Amount=0 is unchanged.  Amount=1 is white.  Amount=-1 is black.
+// But not quite, because in this example, you can still see modulation despite x seeming like a black screen:
+let x = noise().brightness(-1)
+osc(40, 0, 1).modulateScrollX(x, 0.02).out()
+// That's because brightness subtracts 1 from all the RGB values, pushing values into the negative region.
+// Every visual source in Hydra (osc, noise, shape, etc.) is a shader function producing values between -1 and 1.
+// These are stored in WebGL framebuffer. When Hydra renders to the screen, the GPU later maps these values into visible colors
+// (e.g. scaling them into [0, 1] for display), but internally they remain floating-point numbers.
 
 // Luma.  Filters by luminance.
 // Non-bright colors become transparent, which may appear black to due Hydra's default background.
@@ -89,12 +97,12 @@ Once you write to a buffer (o0, o1, o2, o3), values are trimmed. Anything lower 
 // Positive modulation amount means that modulated sections will take what's to the right and down.
 // Negative modulation amount means that modulated sections will take what's to the left and up.
 
-// ModulateRepeatX.  Repeats, then uses just the red channel of modulating image to warp upwards.
-// Reps is number of horizontal repeats before modulation is applied.
+// ModulateRepeatX.  Repeats horizontally, then uses just the red channel of modulating image to warp upwards.
+// Reps is number of horizontal repeats before vertical modulation is applied.
 // Offset is *vertical* warp/modulation amount.
 
-// ModulateRepeatY.  Repeats, then uses just the red channel of modulating image to warp to the left.
-// Reps is number of vertical repeats before modulation is applied.
+// ModulateRepeatY.  Repeats horizontally, then uses just the red channel of modulating image to warp to the left.
+// Reps is number of horizontal repeats before horizontal modulation is applied.
 // Offset is *horizontal* warp/modulation amount.
 
 // ModulateKaleid.  Only red channel affects modulation.
