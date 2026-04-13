@@ -1,0 +1,7 @@
+shape(4, 0.001, 0.005)
+	.scale(1, 20000)
+	.modulateScale(gradient()
+		.r(), [1, 150].fast(1)
+		.ease("easeOutQuad")
+		.smooth(0.6))
+	.out()
