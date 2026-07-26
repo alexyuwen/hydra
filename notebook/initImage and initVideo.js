@@ -7,7 +7,7 @@
 // https://raw.githubusercontent.com/alexyuwen/hydra/<commit-id>/path-to-file.file-type
 // Go to media in github, click three dots, click "Copy permalink"
 
-s0.initVideo("https://raw.githubusercontent.com/alexyuwen/hydra/f2cc9338f38b718523162144f9022f889f6ca669/media/butt.MP4")
+
 s0.initVideo("https://raw.githubusercontent.com/alexyuwen/hydra/cdf689604bf6e3065e93f39c0a2a30cf52a84a98/media/elmo.mp4")
 
 
